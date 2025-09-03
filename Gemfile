@@ -11,6 +11,7 @@ gem "tailwindcss-rails"
 gem "jbuilder"
 gem "httparty"
 gem "sidekiq"
+gem "dotenv", groups: [ :development, :test ]
 
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 

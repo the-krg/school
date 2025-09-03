@@ -1,10 +1,7 @@
-API_KEY = "7JbSA3ep6XOMV3t8t7QXuXq9HS79Dwnr"
-BASE_URL = "https://developers.teachable.com/v1/"
-
 class CourseService
   include HTTParty
-  base_uri BASE_URL
-  headers "Accept" => "application/json", "apiKey" => "#{API_KEY}"
+  base_uri ENV["BASE_URL"]
+  headers "Accept" => "application/json", "apiKey" => "#{ENV["API_KEY"]}"
 
   def self.list_courses(query = {})
     get("/courses", query: query)
