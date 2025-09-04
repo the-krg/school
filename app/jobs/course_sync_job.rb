@@ -4,7 +4,7 @@ class CourseSyncJob < ApplicationJob
   def perform(course_id)
     course_data = CourseService.get_course(course_id)
 
-    if course_data.success?
+    if course_data && course_data["id"].present?
       Course.upsert({
         external_id: course_data["id"],
         name: course_data["name"],
@@ -14,7 +14,7 @@ class CourseSyncJob < ApplicationJob
         image_url: course_data["image_url"]
       }, unique_by: :external_id)
     else
-      Rails.logger.error("Failed to sync course with ID #{course_id}: #{course_data.code} - #{course_data.message}")
+      Rails.logger.error("Failed to sync course with ID #{course_id}: #{course_data.inspect}")
     end
   end
 end

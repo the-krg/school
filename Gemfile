@@ -30,6 +30,8 @@ group :development, :test do
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
   gem "rspec-rails", require: false
+  gem "shoulda-matchers", require: false
+  gem "rails-controller-testing"
 end
 
 group :development do

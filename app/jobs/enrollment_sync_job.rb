@@ -8,6 +8,6 @@ class EnrollmentSyncJob < ApplicationJob
       expires_at: enrollment["expires_at"],
       enrolled_at: enrollment["enrolled_at"],
       percent_complete: enrollment["percent_complete"]
-    }, unique_by: :user_id)
+    }, unique_by: [ :user_id, :course_id ])
   end
 end

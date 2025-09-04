@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+ps.: Please disregard the commit messages on GitHub, since this is a one-man project + delivered in a zip file.
+I took the liberty to code everything in ~4 hours.
+They do not represent my actual git commit practices.
+It's on git just for saving and cloud file check purposes.
