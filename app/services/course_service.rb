@@ -7,5 +7,7 @@ class CourseService
     get("/courses", query: query)
   end
 
-  # Other actions like create, update, delete not implemented because they're not needed yet
+  def self.get_course(course_id)
+    get("/courses/#{course_id}")
+  end
 end

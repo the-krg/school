@@ -1,7 +1,7 @@
 class CreateCourses < ActiveRecord::Migration[8.0]
   def change
     create_table :courses do |t|
-      t.integer :course_id
+      t.integer :external_id, null: false
       t.text :description
       t.string :name
       t.string :heading
@@ -10,5 +10,7 @@ class CreateCourses < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
+
+    add_index :courses, :external_id, unique: true
   end
 end

@@ -1,0 +1,46 @@
+<h2 class="text-4xl py-6 font-extrabold text-emerald-900">Published Courses</h2>
+
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+  <% @courses.each do |course| %>
+    <div class="max-w-sm bg-emerald-950 border border-gray-200 rounded-lg shadow-lg border-stone-950">
+      <a class="max-h-[250px] block overflow-hidden">
+        <img class="rounded-t-lg" src="<%= course.image_url %>" alt="" />
+      </a>
+      <div class="p-5">
+        <div class="">
+          <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
+              <%= course.name %>
+            </h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-400">
+            <%= course.heading %>
+          </p>
+        </div>
+        <div class="">
+          <div class="flex items-center justify-between mb-4">
+            <h5 class="text-l font-bold leading-none text-white">Students</h5>
+          </div>
+          <div class="flow-root">
+            <ul role="list" class="bg-teal-900 p-4 rounded-xl divide-y divide-teal-700 max-h-[250px] overflow-y-scroll">
+              <% course.enrollments.each do |enrollment| %>
+                <li class="py-2 sm:py-3 first:pt-0 last:pb-0">
+                  <div class="flex items-center">
+                    <div class="flex-1 min-w-0">
+                      <p class="text-sm font-medium text-white truncate">
+                        <%= enrollment.user.name %>
+                      </p>
+                      <p class="text-sm text-gray-300 truncate">
+                        <%= enrollment.user.email %>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
